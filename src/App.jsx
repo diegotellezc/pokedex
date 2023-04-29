@@ -8,7 +8,7 @@ import PokemonId from './pages/PokemonId'
 function App() {
 
   return (
-    <section>
+    <section className='bg-slate-100'>
       <Routes>
         <Route path='/' element={<Home />} />
 

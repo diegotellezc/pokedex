@@ -59,17 +59,18 @@ const Pokedex = () => {
         <section className='min-h-screen'>
             <Header />
 
-            <section className='py-6 px-2'>
-                <h3>Welcome {nameTrainer}, here you can find your favorite Pokemon</h3>
+            <section className='py-6 px-2 flex flex-col justify-center items-center mx-auto'>
+                <h3 className='mb-6'>
+                    <span className='font-semibold text-red-500'>Welcome {nameTrainer},</span>  you can find your favorite Pokemon here!</h3>
 
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <input id='pokemonName' type="text" placeholder='Search your Pokemon' />
-                        <button>Search</button>
+                <form onSubmit={handleSubmit} className='flex gap-12 h-10 '>
+                    <div className='mr-4 h-full'>
+                        <input className='shadow-md shadow-black/30 h-full w-80 outline-0 px-4 rounded-tl-md rounded-bl-md' id='pokemonName' type="text" placeholder='Search your Pokemon' />
+                        <button className='bg-red-500 shadow-md shadow-black/30 hover:bg-red-600 h-full text-white max-w-max px-10 py-2 rounded-tr-md rounded-br-md '>Search</button>
                     </div>
 
-                    <select onChange={(e) => setCurrentType(e.target.value)}>
-                        <option value="">All</option>
+                    <select className='shadow-md shadow-black/30 rounded-md outline-0 w-80' onChange={(e) => setCurrentType(e.target.value)}>
+                        <option value="">All Pokemon</option>
                         {
                             types.map(type => 
                             <option className='capitalize' value={type} key={type}>{type}</option>)
@@ -80,7 +81,7 @@ const Pokedex = () => {
 
 
             {/* Lista de pokemones */}
-            <section className='px-2 grid gap-6 grid-cols-[290px]'>
+            <section className='px-6 md:px-12 py-12 grid gap-6 auto-rows-auto grid-cols-[repeat(auto-fill,_minmax(220px,_360px))] justify-center'>
             {
                 pokemonsByName.map(pokemon => <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} />)
             }
