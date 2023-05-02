@@ -9,7 +9,7 @@ const ProtectedAuth = () => {
     if(nameTrainer) {
         return <Outlet />
     } else {
-        <Navigate to="/" />
+        return <Navigate to="/" />
     }
 
     return (

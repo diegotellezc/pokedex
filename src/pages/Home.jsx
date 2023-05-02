@@ -17,22 +17,24 @@ const Home = () => {
     
     return (
         <section className='min-h-screen grid grid-rows-[1fr_auto]'>
-            {/* Parte superior */}
-            <section>
-                <article>
-                    <div>
+            {/* Top section */}
+            <section className='grid place-items-center'>
+                <article className='flex flex-col items-center'>
+                    <div className='w-[80%] mb-16'>
                         <img src="/images/pokedex-logo.png" alt="" />
                     </div>
 
-                    <h2>!Hey Trainer!</h2>
-                    <p>Give me your name to start</p>
+                    <h2 className='text-2xl lg:text-4xl text-red-500 font-bold mb-2'>Hey Trainer!</h2>
+                    <p className='text-md lg:text-xl mb-8 md:mb-12'>Do you want to be a Pokemon trainer?</p>
 
-                    <form onSubmit={handleSubmit}>
-                        <input id='nameTrainer' type="text" placeholder='Type your name...' />
-                        <button>Start</button>
+                    <form onSubmit={handleSubmit} className='flex flex-col items-center gap-4 w-full h-24 md:h-12 md:flex-row md:gap-0 md:justify-center'>
+                        <input className='w-[80%] max-w-sm h-12 shadow-md shadow-black/30 md:h-full md:w-80 outline-0 px-4 rounded-md md:rounded-tr-none md:rounded-br-none md:rounded-tl-md md:rounded-bl-md' id='nameTrainer' type="text" placeholder='Type your name...' />
+                        <button className='bg-red-500 shadow-md shadow-black/30 hover:bg-red-600 md:h-full text-white max-w-max px-10 py-2 rounded-md md:rounded-tl-none md:rounded-bl-none md:rounded-tr-md md:rounded-br-md'>Start</button>
                     </form>
                 </article>
             </section>
+
+            {/* Images */}
 
             {/* Footer */}
             <Footer />

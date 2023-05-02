@@ -119,7 +119,7 @@ const Pokedex = () => {
                 <form onSubmit={handleSubmit} className='flex flex-col items-center gap-8 mb-6 lg:mb-0 lg:gap-12 h-10 lg:flex-row'>
                     <div className='mr-4 h-full'>
                         <input className='shadow-md shadow-black/30 h-full w-80 outline-0 px-4 rounded-tl-md rounded-bl-md' id='pokemonName' type="text" placeholder='Search your Pokemon' />
-                        <button className='bg-red-500 shadow-md shadow-black/30 hover:bg-red-600 h-full text-white max-w-max px-10 py-2 rounded-tr-md rounded-br-md '>Search</button>
+                        <button className='bg-red-500 shadow-md shadow-black/30 hover:bg-red-600 h-full text-white max-w-max px-10 py-2 rounded-tr-md rounded-br-md'>Search</button>
                     </div>
 
                     <select className='shadow-md shadow-black/30 rounded-md outline-0 w-80' onChange={(e) => setCurrentType(e.target.value)}>
