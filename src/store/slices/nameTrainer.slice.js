@@ -11,5 +11,5 @@ const nameTrainerSlice = createSlice({
     }
 })
 
-export const {setNameTrainer} = nameTrainerSlice.actions
+export const { setNameTrainer } = nameTrainerSlice.actions
 export default nameTrainerSlice.reducer

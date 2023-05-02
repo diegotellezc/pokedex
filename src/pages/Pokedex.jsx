@@ -145,7 +145,7 @@ const Pokedex = () => {
 
 
             {/* Lista de pokemones */}
-            <section className='px-6 md:px-12 py-12 grid gap-6 auto-rows-auto grid-cols-[repeat(auto-fill,_minmax(220px,_360px))] justify-center'>
+            <section className='px-6 md:px-12 py-12 grid gap-6 auto-rows-auto grid-cols-[repeat(auto-fill,_minmax(220px,_320px))] justify-center'>
             {
                 pokemonInPage.map(pokemon => <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} />)
             }
