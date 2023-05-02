@@ -36,7 +36,7 @@ const Home = () => {
 
             {/* Image */}
             <div className='absolute top-11 left-14 w-48 opacity-50 lg:opacity-80 lg:left-32'>
-                <img src="/images/ash.png" alt="pokeball" />
+                <img src="/images/ash.png" alt="Ash ketchup" />
             </div>
 
             {/* Footer */}
