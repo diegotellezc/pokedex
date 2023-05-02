@@ -88,7 +88,7 @@ const PokemonCard = ({pokemonUrl}) => {
         <Link to={`/pokedex/${pokemon?.id}/`} className={`text-center border-8 rounded-md shadow-lg shadow-black/40 ${bordersByType[pokemon?.types[0].type.name]}`}>
             {/* Section superior */}
             <section className={`bg-gradient-to-b ${backgroundByType[pokemon?.types[0].type.name]} relative h-[180px]`}>
-                <div className='absolute -bottom-12 w-[200px] left-1/2 -translate-x-1/2 hover:scale-125'>
+                <div className='absolute -bottom-12 w-[200px] left-1/2 -translate-x-1/2 hover:scale-125 duration-500'>
                     <img className='hover:animate-bounce' src={pokemon?.sprites.other["official-artwork"].front_default} alt="" />
                 </div>
 
