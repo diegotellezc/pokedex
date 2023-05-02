@@ -122,11 +122,11 @@ const Pokedex = () => {
                         <button className='bg-red-500 shadow-md shadow-black/30 hover:bg-red-600 h-full text-white max-w-max px-10 py-2 rounded-tr-md rounded-br-md'>Search</button>
                     </div>
 
-                    <select className='shadow-md shadow-black/30 rounded-md outline-0 w-80' onChange={(e) => setCurrentType(e.target.value)}>
+                    <select className='shadow-md shadow-black/30 rounded-md outline-0 w-80 h-10 pl-4 text-slate-700' onChange={(e) => setCurrentType(e.target.value)}>
                         <option value="">All Pokemon</option>
                         {
                             types.map(type => 
-                            <option className='capitalize' value={type} key={type}>{type}</option>)
+                            <option className='option capitalize py-6 text-red-500' value={type} key={type}>{type}</option>)
                         }
                     </select>
                 </form>

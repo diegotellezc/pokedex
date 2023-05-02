@@ -9,6 +9,8 @@ const PokemonId = () => {
 
     const {id} = useParams()
 
+    const selectedMovements = pokemon?.moves.slice(0, 18)
+
     useEffect(() => {
         const URL = `https://pokeapi.co/api/v2/pokemon/${id}/`
 
@@ -27,7 +29,7 @@ const PokemonId = () => {
         <section>
             <Header />
 
-            <section className='px-2 py-10 mt-12'>
+            <section className='px-6 py-10 mt-12'>
 
                 <article className='max-w-[900px] mx-auto shadow-lg'>
                     {/* Image section */}
@@ -41,7 +43,7 @@ const PokemonId = () => {
                     <section className='bg-white p-6 rounded-bl-lg rounded-br-lg'>
                         {/* General information */}
                         <section className=''>
-                            <div className='mx-auto border-2 max-w-max px-2 mb-4'>
+                            <div className='mx-auto border-2 max-w-max px-6 mb-4'>
                                 <h3># {pokemon?.id}</h3>
                             </div>
 
@@ -96,7 +98,7 @@ const PokemonId = () => {
                         {/* Stats section */}
                         <section className='px-2 md:px-10'>
                             <div className='grid grid-cols-[auto_1fr] items-center gap-2 font-bold mt-8 mb-2 text-lg'>
-                                <h3>Stats</h3>
+                                <h3 className='text-2xl'>Stats</h3>
                                 <hr />
                             </div>
 
@@ -117,6 +119,29 @@ const PokemonId = () => {
                                     ))
                                 }
                             </section>
+                        </section>
+                    </section>
+                </article>
+
+
+                {/* Movements section */}
+                <article className='max-w-[900px] mt-8 mx-auto shadow-lg'>
+                    
+                    <section className='bg-white p-6 rounded-lg'>
+                        <section className='px-2 md:px-10'>
+                            <div className='grid grid-cols-[auto_1fr_auto] items-center font-bold mt-2 text-lg mb-4 gap-2'>
+                                <h3 className='text-2xl'>Movements</h3>
+                                <hr />
+                                <img className='w-14' src={pokemon?.sprites.versions['generation-v']['black-white'].animated.front_default} alt="" />
+                            </div>
+                            
+                            <section className='flex justify-center gap-4 flex-wrap pb-4'>
+                                {
+                                    selectedMovements?.map((move) => <article key={move.move.name} className={`rounded-md ${colorTextByType[pokemon?.types[0].type.name]} font-semibold capitalize max-w-max py-1 px-8 hover:border-gray-600 border-[1px] border-gray-300 shadow-md bg-white`}>{move.move.name}</article>
+                                    )
+                                }
+                            </section>
+                            
                         </section>
                     </section>
                 </article>

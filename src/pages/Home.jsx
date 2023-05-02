@@ -20,7 +20,7 @@ const Home = () => {
             {/* Top section */}
             <section className='grid place-items-center'>
                 <article className='flex flex-col items-center'>
-                    <div className='w-[80%] mb-16'>
+                    <div className='w-[80%] z-10 mb-16'>
                         <img src="/images/pokedex-logo.png" alt="" />
                     </div>
 
@@ -34,7 +34,10 @@ const Home = () => {
                 </article>
             </section>
 
-            {/* Images */}
+            {/* Image */}
+            <div className='absolute top-11 left-14 w-48 opacity-50 lg:opacity-80 lg:left-32'>
+                <img src="/images/ash.png" alt="pokeball" />
+            </div>
 
             {/* Footer */}
             <Footer />
