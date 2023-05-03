@@ -147,7 +147,7 @@ const PokemonId = () => {
                 </article>
             </section>
 
-            <section className="h-16 mt-4">
+            <section className="h-32 mt-4 md:h-20">
                 <FooterDiego />
             </section>
         </section>
