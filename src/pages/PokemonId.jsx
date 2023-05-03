@@ -3,6 +3,7 @@ import Header from '../components/pokedex/Header'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { backgroundByType, backgroundGradientByType, colorTextByType } from '../constants.js'
+import FooterDiego from '../components/FooterDiego'
 
 const PokemonId = () => {
     const [pokemon, setPokemon] = useState()
@@ -35,7 +36,6 @@ const PokemonId = () => {
                     {/* Image section */}
                     <section className={`bg-gradient-to-b ${backgroundGradientByType[pokemon?.types[0].type.name]} rounded-tl-lg rounded-tr-lg relative h-[140px]`}>
                         <div className='absolute bottom-3 w-[190px] left-1/2 -translate-x-1/2 hover:scale-110 duration-500'>
-                            {/* <img src={pokemon?.sprites.versions['generation-v']['black-white'].animated.front_default} alt="" /> */}
                             <img className='hover:animate-bounce' src={pokemon?.sprites.other["official-artwork"].front_default} alt={pokemon?.name} />
                         </div>
                     </section>
@@ -132,7 +132,7 @@ const PokemonId = () => {
                             <div className='grid grid-cols-[auto_1fr_auto] items-center font-bold mt-2 text-lg mb-4 gap-2'>
                                 <h3 className='text-2xl'>Movements</h3>
                                 <hr />
-                                <img className='w-14' src={pokemon?.sprites.versions['generation-v']['black-white'].animated.front_default} alt="" />
+                                <img className='w-14' src={pokemon?.sprites.versions['generation-v']['black-white'].animated.front_default} alt={pokemon?.name} />
                             </div>
                             
                             <section className='flex justify-center gap-4 flex-wrap pb-4'>
@@ -145,6 +145,10 @@ const PokemonId = () => {
                         </section>
                     </section>
                 </article>
+            </section>
+
+            <section className="h-16 mt-4">
+                <FooterDiego />
             </section>
         </section>
     )

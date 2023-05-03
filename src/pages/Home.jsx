@@ -21,7 +21,7 @@ const Home = () => {
             <section className='grid place-items-center'>
                 <article className='flex flex-col items-center'>
                     <div className='w-[80%] z-10 mb-16'>
-                        <img src="/images/pokedex-logo.png" alt="" />
+                        <img src="/images/pokedex-logo.png" alt="Pokedex title" />
                     </div>
 
                     <h2 className='text-2xl lg:text-4xl text-red-500 font-bold mb-2'>Hey Trainer!</h2>

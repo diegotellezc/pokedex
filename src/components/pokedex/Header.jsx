@@ -13,7 +13,7 @@ const Header = () => {
         <section className='relative'>
             <div className='h-16 bg-red-600 grid items-end'>
                 <div className='max-w-[200px] ml-8 sm:max-w-[300px]'>
-                    <img src="/images/pokedex-logo.png" alt="" />
+                    <img src="/images/pokedex-logo.png" alt="pokedex title" />
                 </div>
             </div>
             <div className='h-12 bg-black'></div>
