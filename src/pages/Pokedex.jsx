@@ -97,6 +97,8 @@ const Pokedex = () => {
         input.current.value = ""
     }, [currentType])
 
+
+
     return (
         <section className="min-h-screen">
             <Header />
@@ -121,7 +123,7 @@ const Pokedex = () => {
                         placeholder="Search your Pokemon"
                         />
                         <button className="bg-red-500 shadow-md shadow-black/30 hover:bg-red-600 h-full text-white max-w-max px-4 py-2  rounded-tr-md rounded-br-md">
-                        🔎
+                        <i className='bx bx-search text-white font-bold'></i>
                         </button>
                     </div>
 
