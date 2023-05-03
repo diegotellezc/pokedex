@@ -1,6 +1,6 @@
-export const paginationLogic = (currentPage, pokemonsByName) => {
+export const paginationLogic = (currentPage, pokemonsByName, pokesPerPage) => {
     // Cantidad de pokemones por página
-    const POKEMONS_PER_PAGE = 12;
+    const POKEMONS_PER_PAGE = +pokesPerPage;
 
     // Pokemones que se van a mostrar en la página actual
     const sliceStart = (currentPage - 1) * POKEMONS_PER_PAGE;

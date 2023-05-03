@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Header from "../components/pokedex/Header";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -16,6 +16,10 @@ const Pokedex = () => {
     const [currentType, setCurrentType] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
 
+    const [pokesPerPage, setPokesPerPage] = useState(12);
+
+    const input = useRef(null)
+
     const nameTrainer = useSelector((store) => store.nameTrainer);
 
     const handleSubmit = (e) => {
@@ -29,7 +33,7 @@ const Pokedex = () => {
 
     
 
-    const { pokemonInPage, lastPage, pagesInBlock, PAGES_PER_BLOCK, POKEMONS_PER_PAGE } = useMemo(() => paginationLogic(currentPage, pokemonsByName), [currentPage, pokemons, pokemonName, currentType]) 
+    const { pokemonInPage, lastPage, pagesInBlock, PAGES_PER_BLOCK } = useMemo(() => paginationLogic(currentPage, pokemonsByName, pokesPerPage), [currentPage, pokemons, pokemonName, currentType, pokesPerPage]) 
 
     const handleClickPreviousPage = () => {
         const newCurrentPage = currentPage - 1;
@@ -88,50 +92,66 @@ const Pokedex = () => {
         setCurrentPage(1);
     }, [pokemonName, currentType]);
 
+    useEffect(() => {
+        setPokemonName("")
+        input.current.value = ""
+    }, [currentType])
+
     return (
         <section className="min-h-screen">
             <Header />
 
-            <section className="pt-6 px-2 flex flex-col justify-center items-center">
-                <h3 className="mt-4 mb-6 text-center">
-                <span className="font-semibold text-red-500">
-                    Welcome {nameTrainer},
-                </span>{" "}
-                you can find your favorite Pokemon here!
+            <section className="pt-6 px-2 flex flex-col justify-center items-center mt-8 md:mt-0 h-[240px] lg:h-[170px]">
+                <h3 className="mt-4 mb-6 text-center md:mb-14 lg:mb-0">
+                    <span className="font-semibold text-red-500">
+                        Welcome {nameTrainer},
+                    </span>{" "}
+                    you can find your favorite Pokemon here!
                 </h3>
 
                 <form
                 onSubmit={handleSubmit}
-                className="flex flex-col items-center gap-8 md:gap-6 mb-6 md:mb-0 w-full md:h-10 md:flex-row md:justify-center md:max-w-[80%]"
+                className="flex flex-col items-center justify-center gap-2 mb-6 w-full md:mb-0 md:gap-6 h-[900px] md:h-24 md:max-w-[80%] lg:w-[1000px] lg:flex-row xl:max-w-[1400px] mx-auto"
                 >
-                <div className="flex flex-col items-center gap-2 md:gap-0 w-full md:w-[50%] md:flex-row md:justify-center md:mr-4 md:h-full ">
-                    <input
-                    className="shadow-md shadow-black/30 rounded h-10 mb-4 md:mb-0 w-[85%] md:w-80 outline-0 px-4 max-w-[24rem] md:rounded-tl-md md:rounded-bl-md md:rounded-none"
-                    id="pokemonName"
-                    type="text"
-                    placeholder="Search your Pokemon"
-                    />
-                    <button className="bg-red-500 shadow-md shadow-black/30 hover:bg-red-600 h-full text-white max-w-max px-10 py-2 rounded-md md:rounded-none md:rounded-tr-md md:rounded-br-md">
-                    Search
-                    </button>
-                </div>
+                    <div className="flex items-center w-full justify-center mb-4 md:mb-0 lg:h-10">
+                        <input ref={input}
+                        className="shadow-md shadow-black/30 h-full md:mb-0 w-[85%] md:w-full lg:w-80 outline-0 px-4 max-w-[24rem] rounded-tl-md rounded-bl-md"
+                        id="pokemonName"
+                        type="text"
+                        placeholder="Search your Pokemon"
+                        />
+                        <button className="bg-red-500 shadow-md shadow-black/30 hover:bg-red-600 h-full text-white max-w-max px-4 py-2  rounded-tr-md rounded-br-md">
+                        🔎
+                        </button>
+                    </div>
 
-            
-                <select
-                    className="shadow-md shadow-black/30 rounded-md outline-0 w-[85%] max-w-[12rem] md:max-w-[15rem] h-10 pl-4 text-slate-700"
-                    onChange={(e) => setCurrentType(e.target.value)}
-                >
-                    <option value="">All Pokemon</option>
-                    {types.map((type) => (
-                    <option
-                        className="option capitalize py-6 text-red-500"
-                        value={type}
-                        key={type}
-                    >
-                        {type}
-                    </option>
-                    ))}
-                </select>
+                    <div className="w-full flex flex-col gap-4 items-center sm:flex-row sm:justify-center sm:items-center mb-8 md:mb-0">
+                        <select
+                            className="shadow-md shadow-black/30 rounded-md outline-0 w-[85%] max-w-[12rem] md:max-w-[15rem] h-10 pl-4 text-slate-700"
+                            onChange={(e) => setCurrentType(e.target.value)}
+                        >
+                            <option value="">All types</option>
+                            {types.map((type) => (
+                            <option
+                                className="option capitalize py-6 text-red-500"
+                                value={type}
+                                key={type}
+                            >
+                                {type}
+                            </option>
+                            ))}
+                        </select>
+
+                        <select className="shadow-md shadow-black/30 rounded-md outline-0 w-[85%] max-w-[12rem] md:max-w-[15rem] h-10 pl-4 text-slate-700" onChange={(e) => setPokesPerPage(e.target.value)}>
+                            <option value="12">Pokemons per page</option>
+                            <option value="4">4</option>
+                            <option value="8">8</option>
+                            <option value="12">12</option>
+                            <option value="16">16</option>
+                            <option value="20">20</option>
+                        </select>
+                    </div>
+                    
                 </form>
             </section>
 
@@ -168,7 +188,7 @@ const Pokedex = () => {
                         <li
                         onClick={() => setCurrentPage(numberPage)}
                         key={numberPage}
-                        className={`p-2 bg-red-500 font-bold text-white rounded-md cursor-pointer ${
+                        className={`p-3 bg-red-500 font-bold text-white rounded-md cursor-pointer ${
                             numberPage === currentPage &&
                             "bg-red-700 border-[1px] border-red-900 scale-110"
                         } hover:bg-red-300`}
@@ -197,7 +217,7 @@ const Pokedex = () => {
                 </ul>
             </section>
             
-            <section className="h-16 mt-4">
+            <section className="h-32 mt-4 md:h-20">
                 <FooterDiego />
             </section>
         </section>
