@@ -29,7 +29,7 @@ const Pokedex = () => {
 
     
 
-    const { pokemonInPage, lastPage, pagesInBlock } = useMemo(() => paginationLogic(currentPage, pokemonsByName), [currentPage, pokemons, pokemonName, currentType]) 
+    const { pokemonInPage, lastPage, pagesInBlock, PAGES_PER_BLOCK, POKEMONS_PER_PAGE } = useMemo(() => paginationLogic(currentPage, pokemonsByName), [currentPage, pokemons, pokemonName, currentType]) 
 
     const handleClickPreviousPage = () => {
         const newCurrentPage = currentPage - 1;
@@ -135,21 +135,21 @@ const Pokedex = () => {
                 </form>
             </section>
 
-            {/* Lista de pokemones */}
-            <section className="px-6 md:px-12 py-4 md:py-12 grid gap-6 auto-rows-auto grid-cols-[repeat(auto-fill,_minmax(220px,_320px))] justify-center">
+            {/* Pokemon list */}
+            <section className="px-6 md:px-12 py-4 md:py-12 grid gap-6 auto-rows-auto grid-cols-[repeat(auto-fill,_minmax(220px,_320px))] justify-center max-w-[1500px] mx-auto">
                 {pokemonInPage.map((pokemon) => (
                 <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} />
                 ))}
             </section>
 
 
-            {/* Paginación */}
+            {/* Pagination */}
             <section className="h-[6rem] grid place-items-center">
                 <ul className="flex gap-3 justify-center mb-4 mx-2 flex-wrap">
                     <li
                         onClick={() => setCurrentPage(1)}
                         className={`${
-                        currentPage < 6 && "hidden"
+                        currentPage <= PAGES_PER_BLOCK && "hidden"
                         } py-3 px-[1px] font-bold text-red-500 text-lg rounded-md cursor-pointer hover:scale-125`}
                     >
                         {"<<"}

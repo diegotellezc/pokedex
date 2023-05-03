@@ -23,5 +23,5 @@ export const paginationLogic = (currentPage, pokemonsByName) => {
     }
     }
 
-    return { pokemonInPage, lastPage, pagesInBlock };
+    return { pokemonInPage, lastPage, pagesInBlock, PAGES_PER_BLOCK, POKEMONS_PER_PAGE };
 }
