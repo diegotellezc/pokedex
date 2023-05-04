@@ -149,7 +149,7 @@ const PokemonId = () => {
 
             {/* Button to return */}
             <section className='w-full mb-12'>
-                <Link to="/pokedex" className='flex gap-2 items-center justify-center bg-red-500 text-white text-lg rounded-md max-w-max px-6 py-2 mx-auto hover:bg-red-600 hover:scale-105'>
+                <Link to="/pokedex" className='flex gap-2 items-center justify-center bg-red-500 text-white text-lg rounded-md max-w-max px-6 py-2 shadow-md shadow-gray-500 mx-auto hover:bg-red-600 hover:scale-105'>
                     <img className='w-7' src="/public/images/pokewhite.png" alt="pokeball" />
                     Go back
                 </Link>
