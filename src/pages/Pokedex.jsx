@@ -190,10 +190,9 @@ const Pokedex = () => {
                         <li
                         onClick={() => setCurrentPage(numberPage)}
                         key={numberPage}
-                        className={`p-3 bg-red-500 font-bold text-white rounded-md cursor-pointer ${
-                            numberPage === currentPage &&
-                            "bg-red-700 border-[1px] border-red-900 scale-110"
-                        } hover:bg-red-300`}
+                        className={`p-3 font-bold text-white rounded-md cursor-pointer ${
+                            numberPage === currentPage ?
+                            "bg-red-500" : "bg-red-700"} hover:border-[1px] hover:border-red-900 hover:scale-110" hover:bg-red-500`}
                         >
                         {numberPage}
                         </li>
