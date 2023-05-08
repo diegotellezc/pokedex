@@ -30,13 +30,13 @@ const PokemonId = () => {
         <section>
             <Header />
 
-            <section className='px-6 py-10 mt-12'>
+            <section className='px-6 py-10 mt-12 group'>
 
                 <article className='max-w-[900px] mx-auto shadow-lg'>
                     {/* Image section */}
                     <section className={`bg-gradient-to-b ${backgroundGradientByType[pokemon?.types[0].type.name]} rounded-tl-lg rounded-tr-lg relative h-[140px]`}>
-                        <div className='absolute bottom-3 w-[190px] left-1/2 -translate-x-1/2 hover:scale-110 duration-500'>
-                            <img className='hover:animate-bounce' src={pokemon?.sprites.other["official-artwork"].front_default} alt={pokemon?.name} />
+                        <div className='absolute bottom-3 w-[190px] left-1/2 -translate-x-1/2 group-hover:scale-110 duration-500'>
+                            <img className='group-hover:animate-bounce' src={pokemon?.sprites.other["official-artwork"].front_default} alt={pokemon?.name} />
                         </div>
                     </section>
 

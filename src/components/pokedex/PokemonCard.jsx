@@ -17,11 +17,11 @@ const PokemonCard = ({pokemonUrl}) => {
 
 
     return (
-        <Link to={`/pokedex/${pokemon?.id}/`} className={`text-center border-8 rounded-md shadow-lg shadow-black/40 ${bordersByType[pokemon?.types[0].type.name]}`}>
+        <Link to={`/pokedex/${pokemon?.id}/`} className={`text-center border-8 rounded-md shadow-lg group shadow-black/40 ${bordersByType[pokemon?.types[0].type.name]}`}>
             {/* Section superior */}
             <section className={`bg-gradient-to-b ${backgroundGradientByType[pokemon?.types[0].type.name]} relative h-[160px]`}>
-                <div className='absolute -bottom-12 w-[200px] left-1/2 -translate-x-1/2 hover:scale-110 duration-500'>
-                    <img className='hover:animate-bounce' src={pokemon?.sprites.other["official-artwork"].front_default} alt={pokemon?.name} />
+                <div className='absolute -bottom-12 w-[200px] left-1/2 -translate-x-1/2 group-hover:scale-110 duration-500'>
+                    <img className='group-hover:animate-bounce' src={pokemon?.sprites.other["official-artwork"].front_default} alt={pokemon?.name} />
                 </div>
             </section>
 
